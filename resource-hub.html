@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Resource Hub | Safety Guides, Checklists & Toolkits | Atlantic Training</title>
+  <meta name="description" content="Download free safety guides, checklists, and survival kits designed to protect your team and keep your facility compliant. LOTO, fall protection, fire safety, active shooter, and more." />
+  <meta name="keywords" content="safety resource hub, workplace safety checklists, LOTO checklist, fall protection PDF, fire safety kit, active shooter guide, safety toolbox talks, incident investigation toolkit" />
+  <meta property="og:title" content="Resource Hub | Safety Guides, Checklists & Toolkits | Atlantic Training" />
+  <meta property="og:description" content="Download free safety guides, checklists, and toolkits to protect your team and keep your facility compliant." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+    ========================================================= */
+    :root {
+      --color-navy:        #0a2240;
+      --color-blue:        #3A5DAE;
+      --color-teal:        #35B8C7;
+      --color-text:        #333333;
+      --color-text-light:  #555555;
+      --color-muted:       #777777;
+      --color-bg:          #ffffff;
+      --color-bg-gray:     #f5f7fa;
+      --color-bg-dark:     #0d1b2e;
+      --color-border:      #e2e8f0;
+      --color-highlight:   #eef1fb;
+      --gradient-brand:    linear-gradient(90deg, #3A5DAE 0%, #35B8C7 100%);
+      --gradient-brand-r:  linear-gradient(135deg, #3A5DAE 0%, #35B8C7 100%);
+      --shadow-card:       0 4px 20px rgba(10, 34, 64, 0.09);
+      --shadow-card-hover: 0 12px 36px rgba(10, 34, 64, 0.16);
+      --shadow-lg:         0 20px 60px rgba(10, 34, 64, 0.12);
+      --radius-card:       12px;
+      --radius-btn:        999px;
+      --font:              'Montserrat', 'Segoe UI', Arial, sans-serif;
+      --max-width:         1180px;
+      --section-pad:       88px 20px;
+
+      --color-red:         #e74c3c;
+      --color-amber:       #f39c12;
+      --color-green:       #27ae60;
+    }
+
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); font-size: 16px; color: var(--color-text); background: var(--color-bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--color-teal); outline-offset: 3px; border-radius: 3px; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px 28px;
+      border-radius: var(--radius-btn);
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .btn:focus-visible { outline: 3px solid var(--color-teal); outline-offset: 3px; }
+
+    .btn-primary {
+      background: var(--gradient-brand);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(58, 93, 174, 0.35);
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(58,93,174,0.45); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-blue);
+      border: 2px solid var(--color-blue);
+    }
+    .btn-secondary:hover { background: var(--color-highlight); transform: translateY(-2px); }
+
+    .btn-secondary-white {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-secondary-white:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-2px); }
+
+    .btn-white {
+      background: #fff;
+      color: var(--color-blue);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    .btn-arrow::after { content: " →"; }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 0.78rem;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      background: var(--color-bg-dark);
+      padding: 100px 20px 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(58,93,174,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58,93,174,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 20%, transparent 70%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(53,184,199,0.12) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    .hero .container { position: relative; z-index: 1; text-align: center; max-width: 820px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--color-teal);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 8px 18px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--color-teal);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(1.5); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num {
+      font-size: 2rem;
+      font-weight: 900;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       FEATURED ASSET — EBOOK SPOTLIGHT
+    ========================================================= */
+    .featured {
+      padding: var(--section-pad);
+      background: var(--color-bg);
+      position: relative;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 0;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    .featured-visual {
+      background: var(--color-bg-dark);
+      padding: 60px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(58,93,174,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58,93,174,0.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.5;
+    }
+
+    .ebook-mockup {
+      position: relative;
+      z-index: 1;
+      width: 220px;
+      perspective: 800px;
+    }
+
+    .ebook-cover {
+      width: 220px;
+      height: 300px;
+      background: var(--gradient-brand-r);
+      border-radius: 4px 12px 12px 4px;
+      box-shadow: 8px 8px 40px rgba(0,0,0,0.4), -2px 0 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 24px;
+      text-align: center;
+      transform: rotateY(-8deg);
+      transition: transform 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .ebook-cover:hover { transform: rotateY(0deg); }
+
+    .ebook-cover::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 12px;
+      background: rgba(0,0,0,0.15);
+    }
+
+    .ebook-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .ebook-icon svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .ebook-cover-title {
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .ebook-cover-pages {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .ebook-shadow {
+      width: 180px;
+      height: 16px;
+      margin: 0 auto;
+      background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
+      margin-top: 12px;
+    }
+
+    .featured-content {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-teal);
+      margin-bottom: 16px;
+    }
+    .featured-label::before {
+      content: '★';
+      font-size: 0.8rem;
+    }
+
+    .featured-content h2 {
+      font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+      font-weight: 800;
+      color: var(--color-navy);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .featured-content p {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.78;
+      margin-bottom: 28px;
+    }
+
+    .featured-meta {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .featured-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-muted);
+    }
+    .featured-meta-item svg { width: 18px; height: 18px; fill: none; stroke: var(--color-blue); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* =========================================================
+       RESOURCES — CATEGORIZED GRID
+    ========================================================= */
+    .resources {
+      padding: var(--section-pad);
+      background: var(--color-bg-gray);
+    }
+
+    .resources-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 800;
+      color: var(--color-navy);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-subtext {
+      font-size: 1.02rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .resource-category {
+      margin-bottom: 56px;
+    }
+    .resource-category:last-child { margin-bottom: 0; }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .category-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .category-icon svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .category-icon-red    { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+    .category-icon-amber  { background: linear-gradient(135deg, #f39c12, #e67e22); }
+    .category-icon-green  { background: linear-gradient(135deg, #27ae60, #1e8449); }
+
+    .category-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-navy);
+    }
+
+    .category-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .resource-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .resource-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card-hover); }
+
+    .resource-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .resource-card[data-category="critical"]::before   { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+    .resource-card[data-category="emergency"]::before  { background: linear-gradient(90deg, #f39c12, #e67e22); }
+    .resource-card[data-category="culture"]::before    { background: linear-gradient(90deg, #27ae60, #1e8449); }
+
+    .resource-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .resource-card-icon svg { width: 24px; height: 24px; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .resource-card[data-category="critical"] .resource-card-icon   { background: rgba(231,76,60,0.1); }
+    .resource-card[data-category="critical"] .resource-card-icon svg { stroke: #e74c3c; }
+    .resource-card[data-category="emergency"] .resource-card-icon  { background: rgba(243,156,18,0.1); }
+    .resource-card[data-category="emergency"] .resource-card-icon svg { stroke: #f39c12; }
+    .resource-card[data-category="culture"] .resource-card-icon    { background: rgba(39,174,96,0.1); }
+    .resource-card[data-category="culture"] .resource-card-icon svg  { stroke: #27ae60; }
+
+    .resource-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--color-navy);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .resource-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .resource-card .btn {
+      align-self: flex-start;
+    }
+
+    .resource-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: gap 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .resource-cta-link::after { content: '→'; transition: transform 0.2s; }
+    .resource-cta-link:hover::after { transform: translateX(4px); }
+
+    .resource-card[data-category="critical"] .resource-cta-link   { color: #e74c3c; }
+    .resource-card[data-category="emergency"] .resource-cta-link  { color: #e67e22; }
+    .resource-card[data-category="culture"] .resource-cta-link    { color: #27ae60; }
+
+    /* =========================================================
+       FINAL CTA
+    ========================================================= */
+    .final-cta {
+      background: var(--color-bg-dark);
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .final-cta-glow {
+      position: absolute;
+      width: 800px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(58,93,174,0.2) 0%, transparent 70%);
+      bottom: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .final-cta .container {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 900;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .final-cta p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .trust-bar {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .trust-item svg { width: 18px; height: 18px; fill: none; stroke: var(--color-teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.7; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .site-footer {
+      background: #061929;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.8rem;
+    }
+    .site-footer a { color: rgba(255,255,255,0.7); text-decoration: underline; }
+    .site-footer a:hover { color: #fff; }
+
+    /* =========================================================
+       ANIMATIONS
+    ========================================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* =========================================================
+       RESPONSIVE — TABLET
+    ========================================================= */
+    @media (max-width: 960px) {
+      .hero { padding: 72px 20px 80px; }
+      .hero-stats { gap: 32px; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { padding: 48px 32px; }
+      .featured-content { padding: 40px 32px; }
+      .resource-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* =========================================================
+       RESPONSIVE — MOBILE
+    ========================================================= */
+    @media (max-width: 620px) {
+      :root { --section-pad: 56px 16px; }
+      .hero { padding: 56px 16px 64px; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero-stats { flex-direction: column; gap: 20px; }
+      .featured-visual { padding: 40px 24px; }
+      .featured-content { padding: 32px 24px; }
+      .featured-meta { flex-direction: column; gap: 12px; }
+      .ebook-cover { width: 180px; height: 244px; }
+      .ebook-mockup { width: 180px; }
+      .resource-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .final-cta-buttons { flex-direction: column; align-items: center; }
+      .final-cta-buttons .btn { width: 100%; justify-content: center; }
+      .trust-bar { flex-direction: column; align-items: center; gap: 16px; }
+      .btn { padding: 12px 22px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="hero" id="hero" aria-labelledby="hero-heading">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+
+      <div class="hero-badge">Resource Hub</div>
+
+      <h1 id="hero-heading">Zero Incidents Starts with<br>Total Preparation.</h1>
+
+      <p class="hero-sub">
+        Download our comprehensive library of safety guides, checklists, and survival kits designed to protect your team and keep your facility compliant.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#resources" class="btn btn-primary btn-arrow">Browse All Resources</a>
+        <a href="#featured" class="btn btn-secondary-white">Get the Free Ebook</a>
+      </div>
+
+      <div class="hero-stats fade-up">
+        <div class="hero-stat">
+          <div class="hero-stat-num">7+</div>
+          <div class="hero-stat-label">Free Resources</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">70+</div>
+          <div class="hero-stat-label">Pages of Content</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Compliance Ready</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FEATURED ASSET — EBOOK SPOTLIGHT
+  ========================================================= -->
+  <section class="featured" id="featured" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="featured-card fade-up">
+
+        <div class="featured-visual" aria-hidden="true">
+          <div class="ebook-mockup">
+            <div class="ebook-cover">
+              <div class="ebook-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="ebook-cover-title">Workplace Safety Tips</div>
+              <div class="ebook-cover-pages">70+ Pages</div>
+            </div>
+            <div class="ebook-shadow"></div>
+          </div>
+        </div>
+
+        <div class="featured-content">
+          <div class="featured-label">Featured Resource</div>
+          <h2 id="featured-heading">High Value Workplace Safety Tips Ebook (70+ Pages)</h2>
+          <p>
+            Don't leave your team's safety to chance. We've compiled over 70 pages of field-tested strategies, compliance tips, and hazard-prevention techniques into one definitive guide. Whether you're auditing your floor or training new hires, this is your blueprint.
+          </p>
+
+          <div class="featured-meta">
+            <div class="featured-meta-item">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              PDF Format
+            </div>
+            <div class="featured-meta-item">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              70+ Pages
+            </div>
+            <div class="featured-meta-item">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Expert-Curated
+            </div>
+          </div>
+
+          <!-- Link to the ebook landing page -->
+          <a
+            href="https://www.atlantictraining.com/workplace-safety-tips-ebook"
+            class="btn btn-primary btn-arrow"
+            aria-label="Download the Workplace Safety Tips Ebook"
+          >
+            Download the Ebook
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RESOURCES — CATEGORIZED
+  ========================================================= -->
+  <section class="resources" id="resources" aria-labelledby="resources-heading">
+    <div class="container">
+
+      <div class="resources-header fade-up">
+        <span class="section-label">Resource Library</span>
+        <h2 class="section-heading" id="resources-heading">Everything Your Safety Program Needs</h2>
+        <p class="section-subtext">From compliance checklists to crisis response kits, download the tools that keep your people protected and your facility audit-ready.</p>
+      </div>
+
+      <!-- ── CRITICAL SAFETY & COMPLIANCE ── -->
+      <div class="resource-category fade-up">
+        <div class="category-header">
+          <div class="category-icon category-icon-red" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="category-title">Critical Safety &amp; Compliance</h3>
+          <div class="category-line"></div>
+        </div>
+
+        <div class="resource-grid">
+
+          <div class="resource-card fade-up" data-category="critical">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>6 Steps to LOTO (Lockout/Tagout) Safety</h3>
+            <p>Lockout/Tagout procedures to eliminate energy accidents. A step-by-step checklist your team can use during every maintenance operation.</p>
+            <a href="https://www.atlantictraining.com/loto-safety-checklist" class="resource-cta-link" aria-label="Download the LOTO Safety Checklist">Download Checklist</a>
+          </div>
+
+          <div class="resource-card fade-up fade-up-delay-1" data-category="critical">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3>Fall Protection Safety Checklist</h3>
+            <p>The essential audit tool for working at heights and eliminating gravity-related risks. Cover harnesses, guardrails, and anchor points.</p>
+            <a href="https://www.atlantictraining.com/fall-protection-checklist" class="resource-cta-link" aria-label="Get the Fall Protection Safety PDF">Get the PDF</a>
+          </div>
+
+          <div class="resource-card fade-up fade-up-delay-2" data-category="critical">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </div>
+            <h3>Fire Safety Resource Kit</h3>
+            <p>Complete evacuation templates and extinguisher maintenance logs. Everything you need to be audit-ready on fire preparedness.</p>
+            <a href="https://www.atlantictraining.com/fire-safety-resource-kit" class="resource-cta-link" aria-label="Access the Fire Safety Resource Kit">Access Kit</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── EMERGENCY & CRISIS RESPONSE ── -->
+      <div class="resource-category fade-up">
+        <div class="category-header">
+          <div class="category-icon category-icon-amber" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3 class="category-title">Emergency &amp; Crisis Response</h3>
+          <div class="category-line"></div>
+        </div>
+
+        <div class="resource-grid">
+
+          <div class="resource-card fade-up" data-category="emergency">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+            </div>
+            <h3>Active Shooter Survival Guide</h3>
+            <p>Critical "Run, Hide, Fight" protocols and facility lockdown strategies. Prepare your team for the unthinkable with clear action steps.</p>
+            <a href="https://www.atlantictraining.com/active-shooter-survival-guide" class="resource-cta-link" aria-label="Download the Active Shooter Survival Guide">Download Guide</a>
+          </div>
+
+          <div class="resource-card fade-up fade-up-delay-1" data-category="emergency">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3>Incident Investigation Toolkit</h3>
+            <p>Don't just report — resolve. Root cause analysis forms, interview templates, and corrective action trackers all in one kit.</p>
+            <a href="https://www.atlantictraining.com/incident-investigation-toolkit" class="resource-cta-link" aria-label="Get the Incident Investigation Toolkit">Get the Toolkit</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── CULTURE & DAILY OPERATIONS ── -->
+      <div class="resource-category fade-up">
+        <div class="category-header">
+          <div class="category-icon category-icon-green" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="category-title">Culture &amp; Daily Operations</h3>
+          <div class="category-line"></div>
+        </div>
+
+        <div class="resource-grid">
+
+          <div class="resource-card fade-up" data-category="culture">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>5 Minute Huddle Kit</h3>
+            <p>Quick, high-impact safety talks to kick off every shift without losing productivity. Printable cards your supervisors will actually use.</p>
+            <a href="https://www.atlantictraining.com/5-minute-huddle-kit" class="resource-cta-link" aria-label="Download the 5 Minute Huddle Cards">Download Huddle Cards</a>
+          </div>
+
+          <div class="resource-card fade-up fade-up-delay-1" data-category="culture">
+            <div class="resource-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Workplace Bullying Prevention Kit</h3>
+            <p>Tools for HR and Management to foster psychological safety and a respectful work environment. Policy templates and reporting workflows included.</p>
+            <a href="https://www.atlantictraining.com/workplace-bullying-prevention-kit" class="resource-cta-link" aria-label="Access the Workplace Bullying Prevention Kit">Access Prevention Kit</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA
+  ========================================================= -->
+  <section class="final-cta" aria-labelledby="final-cta-heading">
+    <div class="final-cta-glow" aria-hidden="true"></div>
+    <div class="container fade-up">
+
+      <h2 id="final-cta-heading">Build a Safer Workplace.<br>Start with the Right Tools.</h2>
+      <p>
+        Every checklist downloaded, every guide read, and every kit distributed brings your team one step closer to zero incidents. Don't wait for an accident to act.
+      </p>
+
+      <div class="final-cta-buttons">
+        <a href="#resources" class="btn btn-white btn-arrow">Explore All Resources</a>
+        <a href="https://www.atlantictraining.com/contact" class="btn btn-secondary-white">Talk to Our Team</a>
+      </div>
+
+      <div class="trust-bar">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          OSHA-Aligned Content
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Field-Tested by Safety Pros
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Downloads
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Updated for 2026 Regs
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="footer-year"></span> Atlantic Training, Inc. All rights reserved. &nbsp;|&nbsp;
+      <a href="https://www.atlantictraining.com/privacy-policy">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="https://www.atlantictraining.com/terms">Terms of Use</a>
+    </p>
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const fadeEls = document.querySelectorAll('.fade-up');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      fadeEls.forEach(el => obs.observe(el));
+    } else {
+      fadeEls.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
