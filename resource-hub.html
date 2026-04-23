@@ -535,7 +535,8 @@
         cta: 'Get the Free Huddle Kit',
         url: './Week 1_ Beyond the Hard Hat_ Building a Safety Culture That Sticks/',
         date: '2026-04-06',
-        icon: 'clock'
+        icon: 'clock',
+        image: './Week 1_ Beyond the Hard Hat_ Building a Safety Culture That Sticks/Screenshot 2026-04-23 203304.png'
       },
       {
         id: 2,
@@ -547,7 +548,8 @@
         cta: 'Download the Toolkit',
         url: './Week 2_ Construction Suicide Prevention Week/',
         date: '2026-03-30',
-        icon: 'heart'
+        icon: 'heart',
+        image: './Week 2_ Construction Suicide Prevention Week/Marketing Collateral/AT204-Mental Health-Awareness and Support in Construction.png'
       },
       {
         id: 3,
@@ -559,7 +561,8 @@
         cta: 'Download the Safe Roads Toolkit',
         url: './Week 3_ Truck Driver Appreciation (and Safety!)/',
         date: '2026-03-23',
-        icon: 'shield'
+        icon: 'shield',
+        image: './Week 3_ Truck Driver Appreciation (and Safety!)/blog-truck-driver.png'
       },
       {
         id: 4,
@@ -571,7 +574,8 @@
         cta: 'Get Your Preparedness Kit',
         url: './Week 4_ Emergency Preparedness \u201CBe Prepared\u201D/',
         date: '2026-03-16',
-        icon: 'alert'
+        icon: 'alert',
+        image: './Week 4_ Emergency Preparedness \u201CBe Prepared\u201D/assets/AdobeStock_1935305093.jpeg'
       },
       {
         id: 5,
@@ -583,7 +587,8 @@
         cta: 'Get Your Recovery Kit',
         url: './Week 5_ Addiction Recovery (Substance Use and Abuse)/',
         date: '2026-03-09',
-        icon: 'plus'
+        icon: 'plus',
+        image: './Week 5_ Addiction Recovery (Substance Use and Abuse)/Screenshot 2026-04-22 212716.png'
       },
       {
         id: 6,
@@ -595,7 +600,8 @@
         cta: 'Get Your Fire Safety Kit',
         url: './Week 6_ Fire Prevention & Egress Plans/',
         date: '2026-03-02',
-        icon: 'fire'
+        icon: 'fire',
+        image: './Week 6_ Fire Prevention & Egress Plans/Screenshot 2026-04-22 213535.png'
       },
       {
         id: 7,
@@ -607,7 +613,8 @@
         cta: 'Get Your Free Kit',
         url: './Week 7_ Bullying Awareness, Response, and Prevention in the Workplace/',
         date: '2026-02-23',
-        icon: 'users'
+        icon: 'users',
+        image: './Week 7_ Bullying Awareness, Response, and Prevention in the Workplace/Screenshot 2026-04-22 213928.png'
       },
       {
         id: 8,
@@ -619,7 +626,8 @@
         cta: 'Get Your Checklist',
         url: './Week 8_ Be Cyber Smart_ Protect Your People, Protect Your Data/',
         date: '2026-02-16',
-        icon: 'monitor'
+        icon: 'monitor',
+        image: './Week 8_ Be Cyber Smart_ Protect Your People, Protect Your Data/Screenshot 2026-04-22 214327.png'
       },
       {
         id: 9,
@@ -631,7 +639,8 @@
         cta: 'Get the Checklist',
         url: './Week 9 Keeping Teams Safe and Sites Secure when Violence Comes to Work/',
         date: '2026-02-09',
-        icon: 'alert'
+        icon: 'alert',
+        image: './Week 9 Keeping Teams Safe and Sites Secure when Violence Comes to Work/Screenshot 2026-04-22 215738.png'
       },
       {
         id: 10,
@@ -643,7 +652,8 @@
         cta: 'Get the Free Playbook',
         url: './Free Workplace Safety Report Registration/',
         date: '2026-04-01',
-        icon: 'book'
+        icon: 'book',
+        image: './Free Workplace Safety Report Registration/Screenshot 2026-04-23 145958.png'
       },
       {
         id: 11,
@@ -655,7 +665,8 @@
         cta: 'Download the Free Guide',
         url: './Hazard Recognition Toolkit/',
         date: '2026-03-20',
-        icon: 'search'
+        icon: 'search',
+        image: './Hazard Recognition Toolkit/assets/hazard-recognition-thumb.png'
       },
       {
         id: 12,
@@ -667,7 +678,8 @@
         cta: 'Download Guide',
         url: './driving-safety-guide/',
         date: '2026-03-15',
-        icon: 'shield'
+        icon: 'shield',
+        image: './driving-safety-guide/assets/distracted-driving-thumb.png'
       },
       {
         id: 13,
@@ -679,7 +691,8 @@
         cta: 'Get the Checklist',
         url: './Lead Magnet Landing Page Template/',
         date: '2026-01-28',
-        icon: 'clipboard'
+        icon: 'clipboard',
+        image: './Lead Magnet Landing Page Template/AdobeStock_596505578 (1).jpeg'
       },
       {
         id: 14,
@@ -691,7 +704,8 @@
         cta: 'Unlock the Recording',
         url: './Gated Webinar Project/',
         date: '2026-04-03',
-        icon: 'video'
+        icon: 'video',
+        image: './Gated Webinar Project/AdobeStock_426475037.jpeg'
       }
     ];
 
@@ -792,10 +806,10 @@
       grid.innerHTML = page.map(r => `
         <article class="resource-card">
           <div class="card-thumb" data-cat="${r.category}">
-            <div class="card-thumb-icon">
-              <svg viewBox="0 0 24 24">${ICONS[r.icon] || ICONS.shield}</svg>
-            </div>
-
+            ${r.image
+              ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
+              : `<div class="card-thumb-icon"><svg viewBox="0 0 24 24">${ICONS[r.icon] || ICONS.shield}</svg></div>`
+            }
           </div>
           <div class="card-body">
             <div class="card-tags">
