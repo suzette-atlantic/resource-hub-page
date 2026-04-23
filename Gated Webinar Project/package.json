@@ -1,0 +1,21 @@
+{
+  "name": "webinar-landing-page-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suzette-atlantic/webinar-landing-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/suzette-atlantic/webinar-landing-page/issues"
+  },
+  "homepage": "https://github.com/suzette-atlantic/webinar-landing-page#readme"
+}

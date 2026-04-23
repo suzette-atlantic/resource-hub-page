@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workplace Violence Prevention Checklist | Atlantic Training Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --atlantic-deep-blue: #374a9e;
+            --atlantic-teal: #3ac4de;
+            --atlantic-gradient: linear-gradient(90deg, var(--atlantic-deep-blue) 0%, var(--atlantic-teal) 100%);
+            --text-dark: #1d1d1f;
+            --text-light: #ffffff;
+            --bg-light: #f9f9fb;
+            --white: #ffffff;
+            --soft-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(55, 74, 158, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(55, 74, 158, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(55, 74, 158, 0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Header ── */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-cta {
+            background: var(--atlantic-gradient);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .header-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        @media (min-width: 768px) {
+            .header-cta { display: inline-block; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* ── Wave Dividers ── */
+        .wave-divider {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .wave-top { top: 0; transform: rotate(180deg); }
+        .wave-bottom { bottom: 0; }
+
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-fill { fill: var(--bg-light); }
+        .wave-fill-white { fill: var(--white); }
+
+        /* ── Typography ── */
+        h1, h2, h3 {
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            color: var(--atlantic-teal);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* ── Buttons ── */
+        .btn-large {
+            display: inline-block;
+            background: var(--atlantic-gradient);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(58, 196, 222, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(58, 196, 222, 0.6);
+        }
+
+        /* ── HERO title band (white) ── */
+        .hero-title-band {
+            background-color: #ffffff;
+            padding: 60px 0 56px;
+            text-align: center;
+        }
+
+        .hero-title-band .eyebrow {
+            color: #000;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title-band h1 {
+            font-size: 52px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title-band h1 span {
+            background: linear-gradient(90deg, #374a9e 0%, #3ac4de 50%, #374a9e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: shine 5s linear infinite;
+        }
+
+        /* ── HERO content band (dark) ── */
+        .hero {
+            background-color: #000;
+            background-image: radial-gradient(ellipse at 50% 40%, rgba(58, 196, 222, 0.15) 0%, rgba(55, 74, 158, 0.08) 40%, transparent 70%);
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cinematic {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .hero-cinematic h1 span {
+            background: linear-gradient(90deg, #374a9e 0%, #3ac4de 50%, #374a9e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: shine 5s linear infinite;
+        }
+
+        /* ── Hero Form ── */
+        .hero-form-wrap {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 32px;
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-form-wrap h3 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .hero-form-wrap .hero-form-sub {
+            color: #b0b3c0;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .hero-copy {
+            max-width: 700px;
+            margin-bottom: 32px;
+        }
+
+        .hero-copy .subhead {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--atlantic-teal);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .hero-copy p {
+            font-size: 17px;
+            color: #b0b3c0;
+            line-height: 1.7;
+        }
+
+        /* ── "Inside the Checklist" Grid ── */
+        .grid-section {
+            background-color: var(--bg-light);
+            position: relative;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(58, 196, 222, 0.1) 0%, rgba(55, 74, 158, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(55, 74, 158, 0.1);
+            border-color: rgba(58, 196, 222, 0.3);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 24px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--atlantic-deep-blue);
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* ── Final CTA / Gated Form ── */
+        .final-cta {
+            background: #111;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(58, 196, 222, 0.2) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .final-cta h2 {
+            font-size: 44px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+        }
+
+        .final-cta p {
+            font-size: 19px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+
+        .privacy-note {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .hero-title-band h1 {
+                font-size: 38px;
+                white-space: normal;
+            }
+            .hero {
+                padding: 60px 0 100px;
+            }
+            .hero-cinematic {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header-content {
+                justify-content: center;
+            }
+            .header-cta {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title-band h1 {
+                font-size: 30px;
+                white-space: normal;
+            }
+            .hero-title-band .eyebrow {
+                font-size: 15px;
+            }
+            .hero {
+                padding: 48px 0 80px;
+            }
+            .hero-copy .subhead {
+                font-size: 18px;
+            }
+            .final-cta h2 {
+                font-size: 32px;
+            }
+            .hero-form-wrap {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ HEADER ═══ -->
+<header>
+    <div class="header-content">
+        <img src="assets/AT_Logo.png" alt="Atlantic Training" class="logo">
+        <a href="#download" class="header-cta">Download Checklist</a>
+    </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════ HERO TITLE ═══ -->
+<section class="hero-title-band reveal">
+    <div class="container">
+        <span class="eyebrow">Free Safety Checklist</span>
+        <h1><span>Is Your Facility Prepared?</span><br>The Essential Workplace Violence Prevention Checklist</h1>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ HERO CONTENT ═══ -->
+<section class="hero" id="download">
+    <div class="container hero-cinematic reveal">
+        <div class="hero-left">
+            <div class="hero-copy">
+                <p class="subhead">Stop reacting and start preventing. Turn compliance requirements into an actionable safety plan.</p>
+                <p>Workplace violence remains one of the most under-prepared-for hazards in every industry. Regulatory standards are tightening, legal exposure is growing, and a binder on a shelf is no longer enough. This checklist bridges the gap between passive awareness training and real-world prevention, giving you a step-by-step framework to assess risk, build reporting protocols, and meet OSHA compliance head-on.</p>
+            </div>
+        </div>
+
+        <div class="hero-form-wrap">
+            <h3>Get Your Free Copy</h3>
+            <p class="hero-form-sub">Instant download — no fluff, just the checklist.</p>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+                hbspt.forms.create({
+                    portalId: "5486514",
+                    formId: "cac62173-16d9-4824-beea-82ae5c8dfe8f",
+                    region: "na1"
+                });
+            </script>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ INSIDE THE CHECKLIST ═══ -->
+<section class="grid-section">
+    <div class="wave-divider wave-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-white"></path>
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="reveal" style="text-align: center;">
+            <span class="eyebrow" style="display: inline-block;">What's Inside</span>
+            <h2 style="margin-bottom: 40px;">Inside the Prevention Checklist</h2>
+        </div>
+        <div class="grid">
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-shield-check.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Compliance & Paperwork" class="card-icon">
+                <h3>Compliance & Paperwork</h3>
+                <p>Learn how to create a custom Workplace Violence Prevention Plan (WVPP) and maintain legally compliant incident logs to cover your assets.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/circle-comm.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Architectural Security" class="card-icon">
+                <h3>Architectural Security</h3>
+                <p>Discover how to "design out the danger" using uniform lighting, clear sight-lines, and strict access control to sensitive employee-only zones.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-progress.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Spotting Red Flags" class="card-icon">
+                <h3>Spotting Red Flags</h3>
+                <p>Train your managers to identify "Level One" warning signs, from severe mood swings to sudden, unexplained disregard for basic safety rules.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-users.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="De-Escalation & Verbal Judo" class="card-icon">
+                <h3>De-Escalation & Verbal Judo</h3>
+                <p>Equip your team with basic de-escalation body language, safe distancing techniques, and the verbal skills needed to defuse situations safely.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-data-dashboard.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Safe Reporting Systems" class="card-icon">
+                <h3>Safe Reporting Systems</h3>
+                <p>Implement zero-retaliation reporting channels and ensure Support Systems like your EAP and the 988 Crisis Lifeline are properly utilized.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-shield-check.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Training & Documentation" class="card-icon">
+                <h3>Training & Documentation</h3>
+                <p>Move beyond dusty manuals with interactive hazard recognition education and meticulous record-keeping protocols that actually work.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FINAL CTA ═══ -->
+<section class="final-cta">
+    <div class="container reveal">
+        <h2>Ready to Protect Your Team?</h2>
+        <p>Join proactive Safety Managers who use this checklist to protect their teams and ensure compliance.</p>
+        <a href="#download" class="btn-large">Get the Checklist</a>
+        <p class="privacy-note" style="white-space: nowrap;">We respect your privacy. No spam, just the checklist and a few helpful resources.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ JS ═══ -->
+<script>
+    // Scroll Reveal Animation
+    function reveal() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+</script>
+
+</body>
+</html>

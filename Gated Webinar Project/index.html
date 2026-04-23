@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Demand Replay: Breaking Up With Spreadsheets — Safety LMS Buyer's Guide | Atlantic Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --atlantic-deep-blue: #374a9e;
+            --atlantic-teal: #3ac4de;
+            --atlantic-gradient: linear-gradient(90deg, var(--atlantic-deep-blue) 0%, var(--atlantic-teal) 100%);
+            --text-dark: #1d1d1f;
+            --text-light: #ffffff;
+            --bg-light: #f9f9fb;
+            --white: #ffffff;
+            --soft-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(55, 74, 158, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(55, 74, 158, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(55, 74, 158, 0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Header ── */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-cta {
+            background: var(--atlantic-gradient);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .header-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        @media (min-width: 768px) {
+            .header-cta { display: inline-block; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* ── Wave Dividers ── */
+        .wave-divider {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .wave-top { top: 0; transform: rotate(180deg); }
+        .wave-bottom { bottom: 0; }
+
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-fill { fill: var(--bg-light); }
+        .wave-fill-white { fill: var(--white); }
+
+        /* ── Typography ── */
+        h1, h2, h3 {
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            color: var(--atlantic-teal);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* ── Buttons ── */
+        .btn-large {
+            display: inline-block;
+            background: var(--atlantic-gradient);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(58, 196, 222, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(58, 196, 222, 0.6);
+        }
+
+        /* ── HERO title band (white) ── */
+        .hero-title-band {
+            background-color: #ffffff;
+            padding: 60px 0 56px;
+            text-align: center;
+        }
+
+        .hero-title-band .eyebrow {
+            color: #000;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title-band h1 {
+            font-size: 52px;
+            max-width: 900px;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+
+        .hero-title-band h1 span {
+            background: linear-gradient(90deg, #374a9e 0%, #3ac4de 50%, #374a9e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: shine 5s linear infinite;
+        }
+
+        /* ── HERO video band (dark) ── */
+        .hero {
+            background-color: #000;
+            background-image: radial-gradient(ellipse at 50% 40%, rgba(58, 196, 222, 0.15) 0%, rgba(55, 74, 158, 0.08) 40%, transparent 70%);
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cinematic {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-cinematic h1 span {
+            background: linear-gradient(90deg, #374a9e 0%, #3ac4de 50%, #374a9e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: shine 5s linear infinite;
+        }
+
+        .hero-video-wrap {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 48px;
+        }
+
+        .hero .video-note {
+            color: #ffffff;
+        }
+
+        .hero-copy {
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        .hero-copy .subhead {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--atlantic-teal);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .hero-copy p {
+            font-size: 17px;
+            color: #b0b3c0;
+            line-height: 1.7;
+        }
+
+        /* ── Video Preview ── */
+        .video-container {
+            width: 100%;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .video-container:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .video-container:hover .video-thumbnail {
+            transform: scale(1.03);
+        }
+
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse-blue 2s infinite;
+        }
+
+        .video-container:hover .play-button-overlay {
+            background: #fff;
+            transform: translate(-50%, -50%) scale(1.15);
+            animation: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button-overlay::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 24px solid var(--atlantic-deep-blue);
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 5px;
+        }
+
+        .preview-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--atlantic-gradient);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            z-index: 2;
+        }
+
+        .video-note {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            margin-top: 14px;
+            font-weight: 600;
+        }
+
+        /* ── Video Modal ── */
+        .video-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .video-modal-overlay.open {
+            display: flex;
+        }
+
+        .video-modal {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .video-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -48px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ── "What You'll Learn" Grid ── */
+        .grid-section {
+            background-color: var(--bg-light);
+            position: relative;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(58, 196, 222, 0.1) 0%, rgba(55, 74, 158, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(55, 74, 158, 0.1);
+            border-color: rgba(58, 196, 222, 0.3);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 24px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--atlantic-deep-blue);
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* ── Speaker (compact) ── */
+        .speaker-section {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+            padding: 60px 0;
+        }
+
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 0;
+            align-items: stretch;
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .headshot {
+            width: 100%;
+            height: 100%;
+            background: #e8e8e8;
+            min-height: 260px;
+        }
+
+        .headshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .speaker-info {
+            padding: 32px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .speaker-info .eyebrow {
+            margin-bottom: 8px;
+        }
+
+        .speaker-info h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            background: var(--atlantic-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .speaker-info p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── Final CTA / Gated Form ── */
+        .final-cta {
+            background: #111;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(58, 196, 222, 0.2) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .final-cta h2 {
+            font-size: 44px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+        }
+
+        .final-cta p {
+            font-size: 19px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+
+        .final-cta .form-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .privacy-note {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .hero-title-band h1 {
+                font-size: 38px;
+                white-space: normal;
+            }
+            .hero {
+                padding: 60px 0 100px;
+            }
+            .speaker-grid {
+                grid-template-columns: 1fr;
+            }
+            .headshot {
+                height: 260px;
+                min-height: auto;
+            }
+            .speaker-info {
+                padding: 30px;
+                text-align: center;
+            }
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .header-content {
+                justify-content: center;
+            }
+            .header-cta {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title-band h1 {
+                font-size: 30px;
+                white-space: normal;
+            }
+            .hero-title-band .eyebrow {
+                font-size: 15px;
+            }
+            .hero {
+                padding: 48px 0 80px;
+            }
+            .hero-copy .subhead {
+                font-size: 18px;
+            }
+            .final-cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ HEADER ═══ -->
+<header>
+    <div class="header-content">
+        <img src="assets/AT_Logo.png" alt="Atlantic Training" class="logo">
+        <a href="#register" class="header-cta">Unlock the Recording</a>
+    </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════ HERO TITLE ═══ -->
+<section class="hero-title-band reveal">
+    <div class="container">
+        <span class="eyebrow">On-Demand Webinar Replay</span>
+        <h1><span>Breaking Up With Spreadsheets:<br>A Buyer's Guide to Safety Training LMS</span></h1>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ HERO VIDEO ═══ -->
+<section class="hero">
+    <div class="container hero-cinematic reveal">
+        <div class="hero-video-wrap">
+            <div class="video-container" id="previewTrigger">
+                <span class="preview-badge">Preview</span>
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/temp-thumbnail.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop" alt="Webinar Preview Thumbnail" class="video-thumbnail">
+                <div class="play-button-overlay"></div>
+            </div>
+            <p class="video-note">Full replay unlocked after registration.</p>
+        </div>
+
+        <div class="hero-copy">
+            <p class="subhead">Missed the live session? The spreadsheets are still messy, but the exit strategy is now on-demand.</p>
+            <p>If you are still spending half your week acting as a "Data Janitor", chasing signatures and fighting with formulas, this guide is your way out. We skipped the sales fluff to give you a raw, honest look at the Safety LMS market, how to identify the "red flags" in your current system, grill vendors on hidden costs, and finally swap "audit panic" for automated compliance.</p>
+        </div>
+
+        <a href="#register" class="btn-large">Unlock the Recording</a>
+    </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════ WHAT YOU'LL LEARN ═══ -->
+<section class="grid-section">
+    <div class="wave-divider wave-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-white"></path>
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="reveal" style="text-align: center;">
+            <span class="eyebrow" style="display: inline-block;">What You'll Learn</span>
+            <h2 style="margin-bottom: 40px;">Inside the Buyer's Guide Recording</h2>
+        </div>
+        <div class="grid">
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-shield-check.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Red Flags" class="card-icon">
+                <h3>The Red Flags</h3>
+                <p>Identify the exact moment your spreadsheet or legacy software becomes a dangerous liability rather than a tool.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/circle-comm.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Needs vs Wants" class="card-icon">
+                <h3>Needs vs. Wants</h3>
+                <p>Separate "shiny object" features from the absolute essentials needed for rock-solid safety tracking.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-progress.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Audit Test" class="card-icon">
+                <h3>The Audit Test</h3>
+                <p>What to look for in reporting tools so you can produce audit-ready records in seconds, not hours.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-users.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Field-Friendly" class="card-icon">
+                <h3>Field-Friendly Design</h3>
+                <p>Why picking a system your field crews can actually figure out is the most important "feature" of all.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-data-dashboard.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Budget Clarity" class="card-icon">
+                <h3>Budget Clarity</h3>
+                <p>Navigate confusing pricing models and find a platform that respects your budget without cutting corners on safety.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-shield-check.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Buyer's Checklist" class="card-icon">
+                <h3>The Buyer's Checklist</h3>
+                <p>A printable rubric to help you "grill" potential vendors and confidently choose your next safety partner.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SPEAKER (compact) ═══ -->
+<section class="speaker-section">
+    <div class="container">
+        <div class="speaker-grid reveal">
+            <div class="headshot">
+                <img src="https://atlantictraining.imgix.net/wysiwyg/files/content-specialists/david.avif?auto=compress&cs=tinysrgb&w=200&h=400&fit=crop" alt="Dr. David LaFazia">
+            </div>
+            <div class="speaker-info">
+                <span class="eyebrow">Speaker</span>
+                <h2>Dr. David LaFazia</h2>
+                <p>Dr. David LaFazia is a key Subject Matter Expert for Atlantic Training, blending years of hands-on technical experience with an earned doctorate in educational leadership and curriculum design. This unique combination allows him to identify training solutions that are not only technically precise but also instructionally effective. In this webinar, David will share his insights on how to choose an LMS that genuinely supports and engages the modern workforce.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FINAL CTA / FORM ═══ -->
+<section class="final-cta" id="register">
+    <div class="container reveal">
+        <h2>Unlock the "Buyer's Guide" Recording</h2>
+        <p>Join hundreds of Safety Managers who have already ditched their spreadsheets and get instant access to the full video replay.</p>
+        <div class="form-wrapper">
+            <script src="https://js.hsforms.net/forms/embed/5486514.js" defer></script>
+            <div class="hs-form-frame" data-region="na1" data-form-id="3c10ec13-2439-491c-aa87-657b2736a8d2" data-portal-id="5486514"></div>
+        </div>
+        <p class="privacy-note" style="white-space: nowrap;">We respect your privacy. No spam, just the recording and a few helpful resources.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ VIDEO MODAL ═══ -->
+<div class="video-modal-overlay" id="videoModal">
+    <div class="video-modal">
+        <button class="modal-close" id="modalClose" aria-label="Close video">&times;</button>
+        <iframe id="modalIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ JS ═══ -->
+<script>
+    // Preview Video Modal
+    (function () {
+        var trigger = document.getElementById('previewTrigger');
+        var overlay = document.getElementById('videoModal');
+        var iframe  = document.getElementById('modalIframe');
+        var closeBtn = document.getElementById('modalClose');
+
+        // Replace with your actual preview video embed URL
+        var previewSrc = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0';
+
+        function openModal() {
+            iframe.src = previewSrc;
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            iframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        trigger.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeModal();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+        });
+    })();
+
+    // Scroll Reveal Animation
+    function reveal() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+</script>
+
+</body>
+</html>

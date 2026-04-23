@@ -1,1 +1,14 @@
 .vercel
+*.mp4
+*.m4a
+*.mp3
+*.ai
+*.pdf
+desktop.ini
+._Icon_
+_Icon_
+.DS_Store
+_Document fonts
+AdobeFnt23.lst
+**/LOGO/
+**/Videos/

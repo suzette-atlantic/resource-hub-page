@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Hard Hat: Building a Safety Culture That Sticks | Atlantic Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --atlantic-deep-blue: #374a9e;
+            --atlantic-teal: #3ac4de;
+            --atlantic-gradient: linear-gradient(90deg, var(--atlantic-deep-blue) 0%, var(--atlantic-teal) 100%);
+            --text-dark: #1d1d1f;
+            --text-light: #ffffff;
+            --bg-light: #f9f9fb;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Header ── */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-cta {
+            background: var(--atlantic-gradient);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .header-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        @media (min-width: 768px) {
+            .header-cta { display: inline-block; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* ── Wave Dividers ── */
+        .wave-divider {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .wave-top { top: 0; transform: rotate(180deg); }
+
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-fill-white { fill: var(--white); }
+
+        /* ── Typography ── */
+        h1, h2, h3 {
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            color: var(--atlantic-teal);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* ── Buttons ── */
+        .btn-large {
+            display: inline-block;
+            background: var(--atlantic-gradient);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(58, 196, 222, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(58, 196, 222, 0.6);
+        }
+
+        /* ── HERO title band (white) ── */
+        .hero-title-band {
+            background-color: #ffffff;
+            padding: 60px 0 56px;
+            text-align: center;
+        }
+
+        .hero-title-band .eyebrow {
+            color: #000;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title-band h1 {
+            font-size: 52px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title-band h1 span {
+            background: linear-gradient(90deg, #374a9e 0%, #3ac4de 50%, #374a9e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: shine 5s linear infinite;
+        }
+
+        /* ── HERO content band (dark) ── */
+        .hero {
+            background-color: #000;
+            background-image: radial-gradient(ellipse at 50% 40%, rgba(58, 196, 222, 0.15) 0%, rgba(55, 74, 158, 0.08) 40%, transparent 70%);
+            padding: 80px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cinematic {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .hero-form-wrap {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 32px;
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-form-wrap h3 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .hero-form-wrap .hero-form-sub {
+            color: #b0b3c0;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .hero-copy {
+            margin-bottom: 32px;
+        }
+
+        .hero-copy .subhead {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--atlantic-teal);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .hero-copy p {
+            font-size: 17px;
+            color: #b0b3c0;
+            line-height: 1.7;
+        }
+
+        .hero-copy p + p {
+            margin-top: 16px;
+        }
+
+        /* ── Pain Points List ── */
+        .pain-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .pain-list li {
+            font-size: 16px;
+            color: #b0b3c0;
+            line-height: 1.7;
+            padding: 6px 0;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .pain-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--atlantic-teal);
+        }
+
+        /* ── Sneak Peek / Grid Section ── */
+        .grid-section {
+            background-color: var(--bg-light);
+            position: relative;
+        }
+
+        .grid-section .section-intro {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 60px;
+        }
+
+        .grid-section .section-intro p {
+            font-size: 17px;
+            color: #555;
+            line-height: 1.7;
+            margin-top: 16px;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            flex: 0 1 calc(33.333% - 20px);
+            max-width: 370px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(58, 196, 222, 0.1) 0%, rgba(55, 74, 158, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(55, 74, 158, 0.1);
+            border-color: rgba(58, 196, 222, 0.3);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 24px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--atlantic-deep-blue);
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* ── Blog / Article Section ── */
+        .article-section {
+            background-color: var(--bg-light);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .article-section h2 {
+            font-size: 38px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .article-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            max-width: 960px;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(55, 74, 158, 0.12);
+            border-color: rgba(58, 196, 222, 0.25);
+        }
+
+        .article-thumb {
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+        }
+
+        .article-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .article-card:hover .article-thumb img {
+            transform: scale(1.05);
+        }
+
+        .article-thumb-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--atlantic-gradient);
+            color: #fff;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        .article-body {
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-body h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            color: var(--text-dark);
+        }
+
+        .article-body p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--atlantic-deep-blue);
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .article-link:hover {
+            gap: 12px;
+        }
+
+        .article-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ── Final CTA ── */
+        .final-cta {
+            background: #111;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(58, 196, 222, 0.2) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .final-cta h2 {
+            font-size: 44px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+        }
+
+        .final-cta p {
+            font-size: 19px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+        }
+
+        .privacy-note {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Placeholder Form ── */
+        .placeholder-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .placeholder-form input,
+        .placeholder-form select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: 'Figtree', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .placeholder-form input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .placeholder-form input:focus,
+        .placeholder-form select:focus {
+            border-color: var(--atlantic-teal);
+        }
+
+        .placeholder-form select {
+            appearance: none;
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+        }
+
+        .placeholder-form select option {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .placeholder-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .placeholder-form button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            background: var(--atlantic-gradient);
+            color: #fff;
+            font-family: 'Figtree', sans-serif;
+            font-weight: 800;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(58, 196, 222, 0.35);
+            margin-top: 6px;
+        }
+
+        .placeholder-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(58, 196, 222, 0.5);
+        }
+
+        .placeholder-form .form-note {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.35);
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .placeholder-form .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .hero-title-band h1 {
+                font-size: 38px;
+            }
+            .hero {
+                padding: 60px 0 80px;
+            }
+            .hero-cinematic {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .pain-list {
+                text-align: left;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .card {
+                flex: 0 1 calc(50% - 15px);
+                max-width: none;
+            }
+            .header-content {
+                justify-content: center;
+            }
+            .header-cta {
+                display: none;
+            }
+            .article-card {
+                grid-template-columns: 1fr;
+            }
+            .article-thumb {
+                min-height: 220px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                flex: 0 1 100%;
+                max-width: none;
+            }
+            .hero-title-band h1 {
+                font-size: 30px;
+            }
+            .hero-title-band .eyebrow {
+                font-size: 15px;
+            }
+            .hero {
+                padding: 48px 0 64px;
+            }
+            .hero-copy .subhead {
+                font-size: 18px;
+            }
+            .final-cta h2 {
+                font-size: 32px;
+            }
+            .article-section h2 {
+                font-size: 30px;
+            }
+            .hero-form-wrap {
+                padding: 28px 20px;
+            }
+            .article-body {
+                padding: 32px 24px;
+            }
+            .article-body p {
+                -webkit-line-clamp: 4;
+            }
+            .btn-large {
+                padding: 18px 36px;
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ HEADER ═══ -->
+<header>
+    <div class="header-content">
+        <img src="assets/AT_Logo.png" alt="Atlantic Training" class="logo">
+        <a href="#download" class="header-cta">Get the Free Huddle Kit</a>
+    </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════ HERO TITLE ═══ -->
+<section class="hero-title-band reveal">
+    <div class="container">
+        <span class="eyebrow">Free Safety Toolkit</span>
+        <h1><span>Beyond the Hard Hat: Building a Safety Culture That Sticks.</span></h1>
+        <p style="font-size: 22px; max-width: 780px; margin: 24px auto 16px; color: #555; line-height: 1.5; font-weight: 400;">Compliance doesn&rsquo;t create culture. People do. Stop chasing incidents and start building habits that prevent them, five minutes at a time.</p>
+        <p style="font-size: 20px; max-width: 780px; margin: 0 auto 32px; color: var(--atlantic-deep-blue); line-height: 1.5; font-weight: 700;">Introducing: The 5-Minute Huddle Kit</p>
+        <a href="#download" class="btn-large">Get the Free Huddle Kit</a>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ HERO CONTENT ═══ -->
+<section class="hero" id="download">
+    <div class="container hero-cinematic reveal">
+        <div class="hero-left">
+            <div class="hero-copy">
+                <p class="subhead">Sound Familiar? You&rsquo;re Not Alone.</p>
+                <p>If you&rsquo;re a Safety Manager, Site Supervisor, or Plant Manager, this scenario isn&rsquo;t rare. You&rsquo;re constantly juggling:</p>
+                <ul class="pain-list">
+                    <li>Complacency and shortcuts that never seem to stop</li>
+                    <li>Lackluster toolbox talks no one pays attention to</li>
+                    <li>The dread of a surprise OSHA inspection</li>
+                    <li>Pressure to prevent repeat incidents</li>
+                </ul>
+                <p style="margin-top: 20px;">It&rsquo;s enough to keep anyone up at night. The truth is, the problem isn&rsquo;t just the shortcut, it&rsquo;s the <strong style="color: var(--atlantic-teal);">culture behind it</strong>. And until that culture shifts, the cycle repeats.</p>
+            </div>
+        </div>
+
+        <div class="hero-form-wrap">
+            <h3>Get Your Free Huddle Kit</h3>
+            <p class="hero-form-sub">Instant download ,  start your first huddle tomorrow.</p>
+            <!-- ═══ PLACEHOLDER: Replace with HubSpot embed ═══ -->
+            <form class="placeholder-form" onsubmit="return false;">
+                <div class="form-row">
+                    <input type="text" placeholder="First Name" aria-label="First Name">
+                    <input type="text" placeholder="Last Name" aria-label="Last Name">
+                </div>
+                <input type="email" placeholder="Work Email" aria-label="Work Email">
+                <input type="text" placeholder="Company Name" aria-label="Company Name">
+                <input type="tel" placeholder="Phone Number" aria-label="Phone Number">
+                <button type="submit">Send Me the Huddle Kit</button>
+                <p class="form-note">We respect your privacy. No spam, ever.</p>
+            </form>
+            <!-- ═══ END PLACEHOLDER ═══ -->
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ SNEAK PEEK ═══ -->
+<section class="grid-section">
+    <div class="wave-divider wave-top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill-white"></path>
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="section-intro reveal">
+            <span class="eyebrow" style="display: inline-block;">What&rsquo;s Inside the Kit</span>
+            <h2>Everything You Need to Run Better Safety Huddles</h2>
+            <p>We packed this kit with real-world tools you can put to work on the floor today, no corporate jargon, no 90-page manuals. Just five minutes that can change everything.</p>
+            <p style="margin-top: 8px; font-weight: 600;">Here&rsquo;s a sneak peek at what&rsquo;s inside:</p>
+        </div>
+        <div class="grid">
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/circle-comm.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Ready-to-Use Huddle Scripts" class="card-icon">
+                <h3>Ready-to-Use Huddle Scripts</h3>
+                <p>Pre-written, 5-minute safety talks your supervisors can grab and go, no prep required, no awkward silences.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-shield-check.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="The Culture Shift Framework" class="card-icon">
+                <h3>The Culture Shift Framework</h3>
+                <p>How to move your team from &ldquo;we do it because OSHA says so&rdquo; to &ldquo;we do it because we look out for each other.&rdquo;</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-progress.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Complacency Busters" class="card-icon">
+                <h3>Complacency Busters</h3>
+                <p>Proven techniques to fight routine blindness, the silent killer hiding behind &ldquo;we&rsquo;ve always done it this way.&rdquo;</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-data-dashboard.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="Shortcut Intervention Tactics" class="card-icon">
+                <h3>Shortcut Intervention Tactics</h3>
+                <p>How to address unsafe shortcuts without killing morale, turn &ldquo;gotcha&rdquo; moments into coaching wins.</p>
+            </div>
+            <div class="card reveal">
+                <img src="https://atlantictraining.imgix.net/redesign_assets/webinar/icon-users.png?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop" alt="The Habit-Building Playbook" class="card-icon">
+                <h3>The Habit-Building Playbook</h3>
+                <p>Small daily actions that compound into a culture where safe choices are the default, not the exception.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ BLOG ARTICLE ═══ -->
+<section class="article-section">
+    <div class="container reveal">
+        <h2>More Insights for Safety Leaders</h2>
+        <a href="https://www.atlantictraining.com/blog/safety-culture-improvement/" class="article-card" style="text-decoration: none; color: inherit;">
+            <div class="article-thumb">
+                <img src="Marketing Collateral/Campaign Email Hero 1.png" alt="Workers in high-visibility vests holding yellow hard hats on a job site">
+                <span class="article-thumb-badge">Featured Article</span>
+            </div>
+            <div class="article-body">
+                <h3>That Sinking Feeling: When You See an Employee Take a Dangerous Shortcut</h3>
+                <p>You see it happen. An employee, someone you&rsquo;ve coached, trained, and reminded countless times, takes a dangerous shortcut. Maybe they climb on top of a pallet instead of grabbing a ladder. Maybe they remove a machine guard just to &ldquo;get the job done quicker.&rdquo; And in that split second, you feel it. That sinking feeling in your stomach. It&rsquo;s part frustration, part fear, and part exhaustion, because you know this story all too well. The truth is, the problem isn&rsquo;t just the shortcut, it&rsquo;s the culture behind it. And until that culture shifts, the cycle repeats.</p>
+                <span class="article-link">
+                    Read the Full Article
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ FINAL CTA ═══ -->
+<section class="final-cta">
+    <div class="container reveal">
+        <h2>Every Shortcut Avoided Starts with Five Minutes.</h2>
+        <p>Every habit built, every safe choice made brings you closer to a workplace where that sinking feeling is replaced with peace of mind.</p>
+        <a href="#download" class="btn-large">Get the Free Huddle Kit Now</a>
+        <p class="privacy-note">We respect your privacy. No spam, just the kit and a few helpful resources.</p>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ JS ═══ -->
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+</script>
+
+</body>
+</html>

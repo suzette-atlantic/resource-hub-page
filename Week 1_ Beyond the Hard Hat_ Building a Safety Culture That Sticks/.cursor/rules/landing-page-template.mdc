@@ -1,0 +1,60 @@
+---
+description: Atlantic Training weekly campaign landing page template and design system
+alwaysApply: true
+---
+
+# Atlantic Training Landing Page Template
+
+When building a new weekly landing page, replicate the **exact** design from the Week 1 page (`index.html` in the Week 1 folder). The structure, CSS, animations, and layout must be identical — only the **content** changes.
+
+## Page Structure (in order)
+
+1. **Header** — Sticky bar with `assets/AT_Logo.png` + gradient CTA pill button
+2. **Hero Title Band** (white) — Eyebrow "Free Safety Toolkit", animated gradient H1, subtitle, lead magnet intro line, large CTA button
+3. **Hero Content Band** (dark/black) — Two-column grid: left = subhead + pain-point intro + teal-bulleted `<ul class="pain-list">` + closing paragraph; right = glassmorphism form card (placeholder for HubSpot)
+4. **What's Inside Grid** (light bg) — Wave divider on top, centered intro with eyebrow, H2, description, then 5 cards in a flex grid (3-col desktop, 2-col tablet, 1-col mobile)
+5. **Blog Article Section** (light bg) — H2 + two-column article card (image left, body right) linking to the blog URL
+6. **Final CTA** (dark bg) — H2, subtitle paragraph, large CTA button, privacy note
+7. **Scroll-reveal JS** at bottom
+
+## Design Tokens
+
+- Font: Figtree (Google Fonts)
+- `--atlantic-deep-blue: #374a9e`
+- `--atlantic-teal: #3ac4de`
+- Gradient: `linear-gradient(90deg, #374a9e, #3ac4de)`
+- H1 uses animated `background-clip: text` shimmer
+- Cards: 16px radius, hover lift + border glow
+- Buttons: 50px radius pill, gradient bg, teal box-shadow
+- Form: dark glass card with `backdrop-filter: blur(12px)`
+
+## What Changes Per Week
+
+Only swap these content slots — never touch the CSS or layout:
+
+| Slot | Location |
+|------|----------|
+| `<title>` | `<head>` |
+| Hero H1 text | `.hero-title-band h1 span` |
+| Hero subtitle | `.hero-title-band p` (first p) |
+| Lead magnet intro line | `.hero-title-band p` (second p) |
+| Header CTA text | `.header-cta` |
+| Hero CTA button text | `.btn-large` |
+| Pain-point subhead | `.hero-copy .subhead` |
+| Pain-point intro paragraph | `.hero-copy p` |
+| Pain-point bullets | `.pain-list li` items |
+| Pain-point closing paragraph | `.hero-copy` last p |
+| Form title | `.hero-form-wrap h3` |
+| Form subtitle | `.hero-form-sub` |
+| Form button text | `.placeholder-form button` |
+| "What's Inside" eyebrow | `.section-intro .eyebrow` |
+| "What's Inside" H2 | `.section-intro h2` |
+| "What's Inside" description | `.section-intro p` |
+| 5 card titles + descriptions | `.card h3` and `.card p` |
+| Blog URL | `.article-card` href |
+| Blog thumbnail image | `.article-thumb img` src |
+| Blog title | `.article-body h3` |
+| Blog excerpt | `.article-body p` |
+| Final CTA H2 | `.final-cta h2` |
+| Final CTA subtitle | `.final-cta p` |
+| Final CTA button text | `.final-cta .btn-large` |

@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Preparedness Hub | Atlantic Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --atlantic-deep-blue: #374a9e;
+  --atlantic-teal: #3ac4de;
+  --atlantic-gradient: linear-gradient(90deg, var(--atlantic-deep-blue) 0%, var(--atlantic-teal) 100%);
+  --text-dark: #1d1d1f;
+  --text-light: #ffffff;
+  --bg-light: #f9f9fb;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Figtree", sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+@keyframes shine { to { background-position: 200% center; } }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--atlantic-deep-blue);
+  text-decoration: none;
+}
+.header-cta {
+  background: var(--atlantic-gradient);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+section { padding: 100px 0; position: relative; }
+h1, h2, h3 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+.eyebrow {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: var(--atlantic-teal);
+  margin-bottom: 16px;
+  display: block;
+}
+.btn-large {
+  display: inline-block;
+  background: var(--atlantic-gradient);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(58, 196, 222, 0.4);
+  border: 0;
+  cursor: pointer;
+}
+.btn-large:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(58, 196, 222, 0.6); }
+
+.hero-title-band { background-color: #ffffff; padding: 60px 0 56px; text-align: center; }
+.hero-title-band .eyebrow { color: #000; font-size: 18px; margin-bottom: 20px; }
+.hero-title-band h1 { font-size: 52px; max-width: 920px; margin: 0 auto; }
+.hero-title-band h1 span {
+  background: linear-gradient(90deg, #374a9e 0%, #3ac4de 50%, #374a9e 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+.hero {
+  background-color: #000;
+  background-image: radial-gradient(ellipse at 50% 40%, rgba(58, 196, 222, 0.15) 0%, rgba(55, 74, 158, 0.08) 40%, transparent 70%);
+  padding: 80px 0 100px;
+  position: relative;
+}
+.hero-cinematic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-copy .subhead {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--atlantic-teal);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.hero-copy p { font-size: 17px; color: #b0b3c0; line-height: 1.7; }
+.hero-copy p + p { margin-top: 14px; }
+.pain-list { list-style: none; margin: 20px 0 0; }
+.pain-list li {
+  font-size: 16px;
+  color: #b0b3c0;
+  line-height: 1.7;
+  padding: 6px 0 6px 28px;
+  position: relative;
+}
+.pain-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--atlantic-teal);
+}
+
+.hero-form-wrap {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 36px 30px;
+  backdrop-filter: blur(12px);
+}
+.hero-form-wrap h3 { color: var(--text-light); font-size: 22px; margin-bottom: 8px; text-align: center; }
+.hero-form-wrap .hero-form-sub { color: #b0b3c0; font-size: 14px; text-align: center; margin-bottom: 24px; }
+.placeholder-form { display: flex; flex-direction: column; gap: 14px; }
+.placeholder-form input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: "Figtree", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+.placeholder-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.placeholder-form .form-note { font-size: 12px; color: rgba(255, 255, 255, 0.5); text-align: center; }
+
+.grid-section { background-color: var(--bg-light); }
+.grid-section .section-intro { text-align: center; max-width: 760px; margin: 0 auto 60px; }
+.grid-section .section-intro p { font-size: 17px; color: #555; line-height: 1.7; margin-top: 16px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.card {
+  background: var(--white);
+  padding: 34px 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(58, 196, 222, 0.15);
+}
+.card h3 { font-size: 20px; margin-bottom: 10px; color: var(--atlantic-deep-blue); }
+.card p { font-size: 15px; color: #555; line-height: 1.6; }
+
+.article-section { background-color: var(--bg-light); padding: 100px 0; }
+.article-section h2 { font-size: 38px; text-align: center; margin-bottom: 24px; }
+.article-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.article-thumb { min-height: 320px; }
+.article-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.article-body { padding: 40px 36px; }
+.article-meta {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--atlantic-deep-blue);
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.article-body h3 { font-size: 30px; margin-bottom: 16px; line-height: 1.2; }
+.article-body p { color: #444; margin-bottom: 14px; }
+.article-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--atlantic-deep-blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+.article-link:hover { text-decoration: underline; }
+
+.lifeline-section {
+  background: #111;
+  color: var(--text-light);
+  text-align: center;
+  padding: 90px 0;
+}
+.lifeline-section h2 { font-size: 42px; margin-bottom: 12px; color: #fff; }
+.lifeline-section p { max-width: 760px; margin: 0 auto 14px; color: rgba(255, 255, 255, 0.9); font-size: 18px; }
+.lifeline-highlight {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #3ac4de;
+}
+
+@media (max-width: 960px) {
+  .hero-title-band h1 { font-size: 38px; }
+  .hero-cinematic { grid-template-columns: 1fr; }
+  .article-card { grid-template-columns: 1fr; }
+  .header-content { justify-content: center; }
+  .header-cta { display: none; }
+}
+@media (max-width: 700px) {
+  section { padding: 70px 0; }
+  .hero-title-band h1 { font-size: 30px; }
+  .grid { grid-template-columns: 1fr; }
+  .article-body h3 { font-size: 24px; }
+  .lifeline-section h2 { font-size: 30px; }
+  .lifeline-section p { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <a href="#" class="logo" aria-label="Atlantic Training">ATLANTIC TRAINING</a>
+    <a href="#download" class="header-cta">Get Your Preparedness Kit</a>
+  </div>
+</header>
+
+<section class="hero-title-band reveal">
+  <div class="container">
+    <span class="eyebrow">National Preparedness Month</span>
+    <h1><span>The Preparedness Hub: Your Plan for Any Emergency</span></h1>
+    <p style="font-size: 22px; max-width: 860px; margin: 24px auto 16px; color: #555; line-height: 1.5; font-weight: 400;">
+      In the face of a crisis, every second counts. Whether it is a natural disaster, a workplace accident, or a health emergency, being prepared is not just a good idea. It is essential for protecting your people and your business.
+    </p>
+    <p style="font-size: 20px; max-width: 860px; margin: 0 auto 32px; color: var(--atlantic-deep-blue); line-height: 1.5; font-weight: 700;">
+      This hub is your central resource for building a resilient and prepared organization.
+    </p>
+    <a href="#download" class="btn-large">Download the Template</a>
+  </div>
+</section>
+
+<section class="hero" id="download">
+  <div class="container hero-cinematic reveal">
+    <div class="hero-left">
+      <div class="hero-copy">
+        <p class="subhead">Your Path to Preparedness</p>
+        <p>
+          Every emergency is unique, but the framework for a strong response is the same. Our free Emergency Action Plan Template helps you start with confidence.
+        </p>
+        <ul class="pain-list">
+          <li>Step-by-step emergency planning structure</li>
+          <li>Simple checklists for response readiness</li>
+          <li>Best practices for communication and coordination</li>
+          <li>Easy customization for your site, team, and risks</li>
+        </ul>
+        <p style="margin-top: 20px;">
+          This is more than a document. It is the foundation for a proactive safety culture that turns uncertainty into confidence and chaos into control.
+        </p>
+      </div>
+    </div>
+    <div class="hero-form-wrap">
+      <h3>Download Our Emergency Plan Template</h3>
+      <p class="hero-form-sub">Access your free kit, complete with checklists, best practices, and resources.</p>
+      <form class="placeholder-form" onsubmit="return false;">
+        <input type="text" placeholder="Full Name" aria-label="Full Name">
+        <input type="email" placeholder="Work Email" aria-label="Work Email">
+        <input type="text" placeholder="Company Name" aria-label="Company Name">
+        <button type="submit" class="btn-large" style="padding: 14px 16px; font-size: 17px;">Get the Free Template</button>
+        <p class="form-note">Confidential. No spam. Practical safety resources only.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="grid-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <span class="eyebrow">Build Your Readiness</span>
+      <h2>Preparedness Actions You Can Start Today</h2>
+      <p>
+        Build a safer workplace with practical steps your team can follow before, during, and after an emergency.
+      </p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <h3>Map Evacuation Routes</h3>
+        <p>Create clear, posted routes and verify that every employee knows where to go in an emergency.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Verify Emergency Contacts</h3>
+        <p>Keep local emergency contacts and internal coordinators current and easy to access.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Check and Restock Kits</h3>
+        <p>Review first aid and emergency supplies regularly so expired or missing items do not slow response.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Train and Rehearse</h3>
+        <p>Run short, focused training and annual reviews so your plan stays useful as risks evolve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="article-section">
+  <div class="container reveal">
+    <h2>From the Atlantic Training Blog</h2>
+    <div class="article-card">
+      <div class="article-thumb">
+        <img src="assets/AdobeStock_1935305093.jpeg" alt="Emergency preparedness supplies including first aid kit, lantern, radio, and bottled water">
+      </div>
+      <div class="article-body">
+        <p class="article-meta">September 22, 2025 | Emergency Safety</p>
+        <h3>How to Start Building an Emergency Action Plan</h3>
+        <p>
+          Emergencies do not wait for perfect timing. This article explains why every business needs a real emergency action plan, what happens when planning is skipped, and simple first steps to build a stronger response framework for your team.
+        </p>
+        <a class="article-link" href="https://www.atlantictraining.com/blog/beyond-the-basics-creating-a-comprehensive-emergency-action-plan-for-your-business/" target="_blank" rel="noopener noreferrer">Read Full Article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lifeline-section">
+  <div class="container reveal">
+    <h2>Emergency Help Resources</h2>
+    <p>If there is an immediate threat to life or safety, call 911 right away.</p>
+    <p>Keep your local emergency contacts and response roles visible, updated, and easy for every employee to access.</p>
+    <span class="lifeline-highlight">Prepared Teams Respond Faster</span>
+    <p style="margin-top: 24px;"><a href="#download" class="btn-large">Get the Free Template</a></p>
+  </div>
+</section>
+
+<script>
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    }
+  }
+}
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
+</body>
+</html>
+
+
+
+

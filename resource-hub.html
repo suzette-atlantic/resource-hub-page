@@ -453,7 +453,7 @@
           </label>
           <label class="filter-item">
             <input type="checkbox" name="category" value="emergency">
-            <span>Emergency Preparedness &amp; First Aid</span>
+            <span>Emergency Prep. &amp; First Aid</span>
           </label>
           <label class="filter-item">
             <input type="checkbox" name="category" value="hr">
@@ -461,7 +461,7 @@
           </label>
           <label class="filter-item">
             <input type="checkbox" name="category" value="ehs">
-            <span>EHS Technology &amp; Digital Solutions</span>
+            <span>EHS Tech. &amp; Digital Solutions</span>
           </label>
         </div>
       </aside>
@@ -527,242 +527,175 @@
     const RESOURCES = [
       {
         id: 1,
-        title: '6 Steps to LOTO (Lockout/Tagout) Safety',
-        desc: 'Lockout/Tagout procedures to eliminate energy accidents. A step-by-step checklist your team can use during every maintenance operation.',
-        category: 'safety',
-        type: 'ebooks',
-        typeLabel: 'Guide',
-        gated: true,
-        cta: 'Register to Access',
-        url: 'https://www.atlantictraining.com/loto-safety-checklist',
-        date: '2026-03-15',
-        icon: 'lock'
-      },
-      {
-        id: 2,
-        title: 'Fall Protection Safety Checklist',
-        desc: 'The essential audit tool for working at heights and eliminating gravity-related risks. Cover harnesses, guardrails, and anchor points.',
-        category: 'safety',
-        type: 'ebooks',
-        typeLabel: 'Checklist',
-        gated: false,
-        cta: 'Download PDF',
-        url: 'https://www.atlantictraining.com/fall-protection-checklist',
-        date: '2026-03-10',
-        icon: 'shield'
-      },
-      {
-        id: 3,
-        title: 'Fire Safety Resource Kit',
-        desc: 'Complete evacuation templates and extinguisher maintenance logs. Everything you need to be audit-ready on fire preparedness.',
+        title: 'Beyond the Hard Hat: Building a Safety Culture That Sticks',
+        desc: 'Stop chasing incidents and start building habits that prevent them, five minutes at a time. Includes the free 5-Minute Huddle Kit for high-impact safety talks every shift.',
         category: 'safety',
         type: 'tools',
         typeLabel: 'Toolkit',
-        gated: false,
-        cta: 'Access Kit',
-        url: 'https://www.atlantictraining.com/fire-safety-resource-kit',
-        date: '2026-02-28',
-        icon: 'fire'
+        cta: 'Get the Free Huddle Kit',
+        url: './Week 1_ Beyond the Hard Hat_ Building a Safety Culture That Sticks/',
+        date: '2026-04-06',
+        icon: 'clock'
+      },
+      {
+        id: 2,
+        title: 'Construction Suicide Prevention Week Resource Hub',
+        desc: 'The construction industry is especially vulnerable to suicide. Resources to raise awareness, provide support, and equip your teams with tools to save lives.',
+        category: 'hr',
+        type: 'tools',
+        typeLabel: 'Toolkit',
+        cta: 'Download the Toolkit',
+        url: './Week 2_ Construction Suicide Prevention Week/',
+        date: '2026-03-30',
+        icon: 'heart'
+      },
+      {
+        id: 3,
+        title: 'National Truck Driver Appreciation Week Resource Hub',
+        desc: 'Honor the millions of professional truck drivers who are the backbone of our economy. Includes the Safe Roads Toolkit for fleet and transportation safety.',
+        category: 'safety',
+        type: 'tools',
+        typeLabel: 'Toolkit',
+        cta: 'Download the Safe Roads Toolkit',
+        url: './Week 3_ Truck Driver Appreciation (and Safety!)/',
+        date: '2026-03-23',
+        icon: 'shield'
       },
       {
         id: 4,
-        title: 'Active Shooter Survival Guide',
-        desc: 'Critical "Run, Hide, Fight" protocols and facility lockdown strategies. Prepare your team for the unthinkable with clear action steps.',
+        title: 'The Preparedness Hub: Your Plan for Any Emergency',
+        desc: 'In the face of a crisis, every second counts. Emergency action plan templates and preparedness resources for natural disasters, workplace accidents, and health emergencies.',
         category: 'emergency',
-        type: 'ebooks',
+        type: 'tools',
         typeLabel: 'Toolkit',
-        gated: true,
-        cta: 'Register to Access',
-        url: 'https://www.atlantictraining.com/active-shooter-survival-guide',
-        date: '2026-03-20',
+        cta: 'Get Your Preparedness Kit',
+        url: './Week 4_ Emergency Preparedness \u201CBe Prepared\u201D/',
+        date: '2026-03-16',
         icon: 'alert'
       },
       {
         id: 5,
-        title: 'Incident Investigation Toolkit',
-        desc: 'Don\'t just report — resolve. Root cause analysis forms, interview templates, and corrective action trackers all in one kit.',
-        category: 'emergency',
+        title: 'Substance Abuse Recovery Resource Hub',
+        desc: 'Recovery is a journey of strength, resilience, and hope. A Recovery Support Kit for supporting individuals and families impacted by substance use and mental health challenges.',
+        category: 'hr',
         type: 'tools',
         typeLabel: 'Toolkit',
-        gated: false,
-        cta: 'Get the Toolkit',
-        url: 'https://www.atlantictraining.com/incident-investigation-toolkit',
-        date: '2026-02-20',
-        icon: 'search'
-      },
-      {
-        id: 6,
-        title: '5 Minute Huddle Kit',
-        desc: 'Quick, high-impact safety talks to kick off every shift without losing productivity. Printable cards your supervisors will actually use.',
-        category: 'safety',
-        type: 'tools',
-        typeLabel: 'Tool',
-        gated: false,
-        cta: 'Download Cards',
-        url: 'https://www.atlantictraining.com/5-minute-huddle-kit',
-        date: '2026-01-18',
-        icon: 'clock'
-      },
-      {
-        id: 7,
-        title: 'Workplace Bullying Prevention Kit',
-        desc: 'Tools for HR and Management to foster psychological safety and a respectful work environment. Policy templates and reporting workflows included.',
-        category: 'hr',
-        type: 'ebooks',
-        typeLabel: 'Guide',
-        gated: false,
-        cta: 'Access Kit',
-        url: 'https://www.atlantictraining.com/workplace-bullying-prevention-kit',
-        date: '2026-01-05',
-        icon: 'heart'
-      },
-      {
-        id: 8,
-        title: 'First Aid Response Quick Reference',
-        desc: 'Laminate-ready quick reference cards for CPR, AED use, choking, burns, and bleeding. Post them in every break room and near first aid stations.',
-        category: 'emergency',
-        type: 'tools',
-        typeLabel: 'Tool',
-        gated: false,
-        cta: 'Download Reference',
-        url: '#',
-        date: '2026-03-01',
+        cta: 'Get Your Recovery Kit',
+        url: './Week 5_ Addiction Recovery (Substance Use and Abuse)/',
+        date: '2026-03-09',
         icon: 'plus'
       },
       {
-        id: 9,
-        title: 'Harassment Prevention Training Guide',
-        desc: 'A comprehensive guide for HR leaders to build and deliver harassment prevention programs that meet state mandates and foster trust.',
-        category: 'hr',
-        type: 'ebooks',
-        typeLabel: 'Guide',
-        gated: true,
-        cta: 'Register to Access',
-        url: '#',
-        date: '2026-02-14',
-        icon: 'users'
-      },
-      {
-        id: 10,
-        title: 'EHS Software Buyer\'s Guide',
-        desc: 'Evaluating EHS platforms? This guide breaks down must-have features, pricing models, and integration checklists so you can choose with confidence.',
-        category: 'ehs',
-        type: 'ebooks',
-        typeLabel: 'Guide',
-        gated: true,
-        cta: 'Register to Access',
-        url: '#',
-        date: '2026-03-22',
-        icon: 'monitor'
-      },
-      {
-        id: 11,
-        title: 'Safety Training ROI Calculator',
-        desc: 'Plug in your incident rates, training costs, and headcount to quantify the return on investment of your safety training program.',
-        category: 'ehs',
-        type: 'tools',
-        typeLabel: 'Calculator',
-        gated: false,
-        cta: 'Use Calculator',
-        url: '#',
-        date: '2026-03-05',
-        icon: 'calculator'
-      },
-      {
-        id: 12,
-        title: 'Hazard Communication Program Webinar',
-        desc: 'Watch our on-demand webinar covering GHS labels, SDS management, and building a compliant HazCom program from scratch.',
+        id: 6,
+        title: 'Workplace Fire Safety Resource Hub',
+        desc: 'Fire safety is non-negotiable. Complete fire safety kit with evacuation templates, extinguisher maintenance logs, and compliance resources.',
         category: 'safety',
-        type: 'videos',
-        typeLabel: 'Webinar',
-        gated: true,
-        cta: 'Register to Watch',
-        url: '#',
-        date: '2026-04-01',
-        icon: 'video'
+        type: 'tools',
+        typeLabel: 'Toolkit',
+        cta: 'Get Your Fire Safety Kit',
+        url: './Week 6_ Fire Prevention & Egress Plans/',
+        date: '2026-03-02',
+        icon: 'fire'
       },
       {
-        id: 13,
-        title: 'Emergency Evacuation Drill Walkthrough',
-        desc: 'A narrated video walkthrough of planning, executing, and debriefing an emergency evacuation drill for any facility size.',
-        category: 'emergency',
-        type: 'videos',
-        typeLabel: 'Video',
-        gated: false,
-        cta: 'Watch Video',
-        url: '#',
-        date: '2026-02-10',
-        icon: 'video'
-      },
-      {
-        id: 14,
-        title: 'New Hire Safety Orientation Kit',
-        desc: 'Everything you need for day-one safety onboarding: checklists, sign-off sheets, facility maps, and a 30-day follow-up schedule.',
+        id: 7,
+        title: 'How Do You Build a Bullying-Free Workplace?',
+        desc: 'Building a respectful workplace is a must. Practical tools, policy templates, and a game plan for HR and management to prevent and address workplace bullying.',
         category: 'hr',
         type: 'tools',
         typeLabel: 'Toolkit',
-        gated: false,
-        cta: 'Download Kit',
-        url: '#',
-        date: '2026-01-22',
-        icon: 'clipboard'
+        cta: 'Get Your Free Kit',
+        url: './Week 7_ Bullying Awareness, Response, and Prevention in the Workplace/',
+        date: '2026-02-23',
+        icon: 'users'
       },
       {
-        id: 15,
-        title: 'LMS Implementation Playbook',
-        desc: 'A step-by-step playbook for rolling out a Learning Management System — from vendor selection to go-live and measuring adoption.',
+        id: 8,
+        title: 'Keeping Your Digital Life Safe',
+        desc: 'Cybersecurity isn\'t just an IT problem — it\'s a fundamental part of business operations. Incident response checklist and awareness resources for the digital workplace.',
         category: 'ehs',
+        type: 'tools',
+        typeLabel: 'Checklist',
+        cta: 'Get Your Checklist',
+        url: './Week 8_ Be Cyber Smart_ Protect Your People, Protect Your Data/',
+        date: '2026-02-16',
+        icon: 'monitor'
+      },
+      {
+        id: 9,
+        title: 'Workplace Violence Prevention Resource Hub',
+        desc: 'Workplace violence is a serious threat that can affect any industry. Proactive prevention checklists, training resources, and protocols to protect your team.',
+        category: 'emergency',
+        type: 'tools',
+        typeLabel: 'Toolkit',
+        cta: 'Get the Checklist',
+        url: './Week 9 Keeping Teams Safe and Sites Secure when Violence Comes to Work/',
+        date: '2026-02-09',
+        icon: 'alert'
+      },
+      {
+        id: 10,
+        title: 'Beyond Compliance: The Playbook for a World-Class Safety Culture',
+        desc: 'Compliance is what you do when the OSHA inspector is watching. Culture is what your team does at 2:00 AM on a Tuesday. An 8-page playbook for EHS, HR, and Ops leaders.',
+        category: 'safety',
         type: 'ebooks',
-        typeLabel: 'Guide',
-        gated: true,
-        cta: 'Register to Access',
-        url: '#',
-        date: '2026-01-30',
+        typeLabel: 'Playbook',
+        cta: 'Get the Free Playbook',
+        url: './Free Workplace Safety Report Registration/',
+        date: '2026-04-01',
         icon: 'book'
       },
       {
-        id: 16,
-        title: 'Confined Space Entry Checklist',
-        desc: 'Permit-required confined space entry procedures, atmospheric testing logs, and rescue plan templates in a single printable package.',
+        id: 11,
+        title: 'Hazard Recognition Toolkit',
+        desc: 'See the danger before it strikes. A 10-page, zero-fluff toolkit to stop reacting to accidents and start predicting them before they happen.',
         category: 'safety',
         type: 'ebooks',
-        typeLabel: 'Checklist',
-        gated: false,
-        cta: 'Download Checklist',
-        url: '#',
-        date: '2026-02-05',
+        typeLabel: 'Guide',
+        cta: 'Download the Free Guide',
+        url: './Hazard Recognition Toolkit/',
+        date: '2026-03-20',
+        icon: 'search'
+      },
+      {
+        id: 12,
+        title: 'Distracted Driving Safety Guide',
+        desc: 'Is your company liable for distracted driving? A comprehensive guide on OSHA compliance, corporate liability, and building a culture of focus on the road.',
+        category: 'safety',
+        type: 'ebooks',
+        typeLabel: 'Guide',
+        cta: 'Download Guide',
+        url: './driving-safety-guide/',
+        date: '2026-03-15',
         icon: 'shield'
       },
       {
-        id: 17,
-        title: 'Diversity & Inclusion Workshop Recording',
-        desc: 'An expert-led recording covering unconscious bias, inclusive language, and actionable strategies for building equitable teams.',
-        category: 'hr',
-        type: 'videos',
-        typeLabel: 'Video',
-        gated: false,
-        cta: 'Watch Recording',
-        url: '#',
-        date: '2025-12-15',
-        icon: 'video'
+        id: 13,
+        title: 'The Essential Workplace Violence Prevention Checklist',
+        desc: 'Stop reacting and start preventing. Turn compliance requirements into an actionable safety plan covering risk assessment, reporting, and OSHA mandates.',
+        category: 'emergency',
+        type: 'ebooks',
+        typeLabel: 'Checklist',
+        cta: 'Get the Checklist',
+        url: './Lead Magnet Landing Page Template/',
+        date: '2026-01-28',
+        icon: 'clipboard'
       },
       {
-        id: 18,
-        title: 'Digital Safety Inspection Checklist Builder',
-        desc: 'Use our interactive tool to build custom digital inspection checklists tailored to your facility, equipment, and OSHA requirements.',
+        id: 14,
+        title: 'Breaking Up With Spreadsheets: A Buyer\u2019s Guide to Safety Training LMS',
+        desc: 'On-demand webinar replay covering the exit strategy from messy spreadsheets to a proper Safety Training LMS. Features, pricing models, and integration tips.',
         category: 'ehs',
-        type: 'tools',
-        typeLabel: 'Tool',
-        gated: false,
-        cta: 'Build Checklist',
-        url: '#',
-        date: '2026-03-12',
-        icon: 'settings'
+        type: 'videos',
+        typeLabel: 'Webinar',
+        cta: 'Unlock the Recording',
+        url: './Gated Webinar Project/',
+        date: '2026-04-03',
+        icon: 'video'
       }
     ];
 
     const ICONS = {
-      lock:       '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
       shield:     '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
       fire:       '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
       alert:      '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
@@ -772,18 +705,16 @@
       plus:       '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>',
       users:      '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
       monitor:    '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
-      calculator: '<rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="16" y2="18"/>',
       video:      '<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>',
       clipboard:  '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>',
-      book:       '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
-      settings:   '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>'
+      book:       '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'
     };
 
     const CATEGORY_LABELS = {
       safety:    'Safety & Compliance',
-      emergency: 'Emergency & Crisis',
-      hr:        'HR & Soft Skills',
-      ehs:       'EHS Technology'
+      emergency: 'Emergency Preparedness & First Aid',
+      hr:        'HR Compliance & Soft Skills',
+      ehs:       'EHS Technology & Digital Solutions'
     };
 
     const PER_PAGE = 6;
